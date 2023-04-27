@@ -23,4 +23,19 @@ public class UserAccountIMPL implements UserAccountService {
     public List<UserAccount> getAllUserById(int id) {
         return accountRepository.getAllAccountTypeBYId(id);
     }
+
+    @Override
+    public int createUserAccount(UserAccount account) {
+        return accountRepository.createNewUserAccount(account);
+    }
+
+    @Override
+    public int removeUserAccountById(int id) {
+        return accountRepository.removeAccountById(id);
+    }
+
+    @Override
+    public int updateUserAccountById(UserAccount account, int id) {
+        return accountRepository.updateAccountById(account, id);
+    }
 }
