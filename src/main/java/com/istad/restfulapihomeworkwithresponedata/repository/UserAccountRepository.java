@@ -33,6 +33,7 @@ public interface UserAccountRepository {
             "profile = #{account.profile}, pin = #{account.pin}, passcode = #{account.passcode}, " +
             "phone_number = #{account.phone_number}, transfer_limit = #{account.transfer_limit}, " +
             "account_types = #{account.account_types} " +
-            "WHERE userId = #{id}")
+            "WHERE userId = #{user.id}")
+    @Result(column = "id", property = "userId")
     int updateAccountById(@Param("account") UserAccount account, int id);
 }
