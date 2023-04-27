@@ -29,10 +29,10 @@ public interface UserAccountRepository {
     @Delete("DELETE FROM user_account WHERE userId = #{id}")
     int removeAccountById(int id);
 
-    @Update("update user_account set username = #{account.username}, gender = #{account.male}, " +
-            "profile = '#{account.profile}, pin = #{account.pin}, passcode = #{account.passcode}, " +
+    @Update("UPDATE user_account SET username = #{account.username}, gender = #{account.gender}, " +
+            "profile = #{account.profile}, pin = #{account.pin}, passcode = #{account.passcode}, " +
             "phone_number = #{account.phone_number}, transfer_limit = #{account.transfer_limit}, " +
             "account_types = #{account.account_types} " +
-            "where userId  = #{id}")
+            "WHERE userId = #{id}")
     int updateAccountById(@Param("account") UserAccount account, int id);
 }
