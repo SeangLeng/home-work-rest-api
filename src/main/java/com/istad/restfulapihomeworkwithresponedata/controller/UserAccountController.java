@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user-accounts")
 public class UserAccountController {
     private final UserAccountMapResponse userAccountMapResponse;
     private final UserAccountService accountService;
@@ -34,21 +33,6 @@ public class UserAccountController {
         }
     }
 
-    @GetMapping("/create-new-user")
-    public Response<List<ResponseUserAccount>> createNewUserAccount(@RequestBody UserAccount account){
-        try {
-            int affectRow = accountService.createUserAccount(account);
-            if(affectRow>0){
-                return Response.<List<ResponseUserAccount>>ok().setMessage("successfully retrieved all user account information");
-            }else{
-                return Response.<List<ResponseUserAccount>>notFound().setMessage("Something cannot founded!");
-            }
-        }catch (Exception e){
-            System.out.println("Wrong : " + e.getMessage());
-            return Response.<List<ResponseUserAccount>>exception().setMessage("Something went wrong!");
-        }
-    }
-
     @GetMapping("/remove-user-account/{id}")
     public Response<List<ResponseUserAccount>> removeUserAccount(@PathVariable("id") int id){
         try {
@@ -63,6 +47,7 @@ public class UserAccountController {
             return Response.<List<ResponseUserAccount>>exception().setMessage("Something went wrong!");
         }
     }
+
     @GetMapping("/update-user-account/{id}")
     public Response<List<ResponseUserAccount>> updateUserAccount(@RequestBody UserAccount account,
                                                                  @PathVariable("id") int id){

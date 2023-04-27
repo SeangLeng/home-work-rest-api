@@ -9,7 +9,6 @@ import java.util.List;
 public interface UserAccountService {
     List<UserAccount> getAllUserAccount();
     List<UserAccount> getAllUserById(int id);
-    int createUserAccount(UserAccount account);
     int removeUserAccountById(int id);
     int updateUserAccountById(UserAccount account, int id);
 }

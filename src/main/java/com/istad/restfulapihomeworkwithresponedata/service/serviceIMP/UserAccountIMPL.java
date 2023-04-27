@@ -25,11 +25,6 @@ public class UserAccountIMPL implements UserAccountService {
     }
 
     @Override
-    public int createUserAccount(UserAccount account) {
-        return accountRepository.createNewUserAccount(account);
-    }
-
-    @Override
     public int removeUserAccountById(int id) {
         return accountRepository.removeAccountById(id);
     }

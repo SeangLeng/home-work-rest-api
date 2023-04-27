@@ -26,17 +26,13 @@ public interface UserAccountRepository {
             "                    ON account_types.#{id} = user_account.account_types")
     List<UserAccount> getAllAccountTypeBYId(int id);
 
-    @Insert("insert into user_account(username, gender, profile, pin, passcode, phone_number, transfer_limit, account_types)" +
-            "values (#{user.username}, #{user.gender}, #{user.profile}, #{user.pin}, #{user.passcode}, #{user.phone_number}, #{user.transfer_limit}, #{user.account_types})")
-    int createNewUserAccount(@Param("user") UserAccount user);
-
-    @Delete("DELETE FROM user_account WHERE userid = #{id}")
+    @Delete("DELETE FROM user_account WHERE userId = #{id}")
     int removeAccountById(int id);
 
     @Update("update user_account set username = #{account.username}, gender = #{account.male}, " +
             "profile = '#{account.profile}, pin = #{account.pin}, passcode = #{account.passcode}, " +
             "phone_number = #{account.phone_number}, transfer_limit = #{account.transfer_limit}, " +
             "account_types = #{account.account_types} " +
-            "where userid  = #{id};")
+            "where userId  = #{id}")
     int updateAccountById(@Param("account") UserAccount account, int id);
 }
