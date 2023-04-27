@@ -31,12 +31,12 @@ public interface UserAccountRepository {
     int createNewUserAccount(@Param("user") UserAccount user);
 
     @Delete("DELETE FROM user_account WHERE userid = #{id}")
-    int removeAccountById(@Param("id") int id);
+    int removeAccountById(int id);
 
-    @Update("update user_account set username = #(account.username), gender = #(account.male), " +
-            "profile = '#(account.profile), pin = #(account.pin), passcode = #(account.passcode), " +
-            "phone_number = #(account.phone_number), transfer_limit = #(account.transfer_limit), " +
-            "account_types = #(account.account_types) " +
-            "where userid  = #(id);")
-    int updateAccountById(@Param("account") UserAccount account, @Param("id") int id);
+    @Update("update user_account set username = #{account.username}, gender = #{account.male}, " +
+            "profile = '#{account.profile}, pin = #{account.pin}, passcode = #{account.passcode}, " +
+            "phone_number = #{account.phone_number}, transfer_limit = #{account.transfer_limit}, " +
+            "account_types = #{account.account_types} " +
+            "where userid  = #{id};")
+    int updateAccountById(@Param("account") UserAccount account, int id);
 }

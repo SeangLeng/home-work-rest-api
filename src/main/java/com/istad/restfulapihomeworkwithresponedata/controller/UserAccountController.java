@@ -50,7 +50,7 @@ public class UserAccountController {
     }
 
     @GetMapping("/remove-user-account/{id}")
-    public Response<List<ResponseUserAccount>> removeUserAccount(@PathVariable("id") Integer id){
+    public Response<List<ResponseUserAccount>> removeUserAccount(@PathVariable("id") int id){
         try {
             int deletedRow = accountService.removeUserAccountById(id);
             if (deletedRow > 0){
@@ -64,7 +64,8 @@ public class UserAccountController {
         }
     }
     @GetMapping("/update-user-account/{id}")
-    public Response<List<ResponseUserAccount>> updateUserAccount(@RequestBody UserAccount account, @PathVariable("id") int id){
+    public Response<List<ResponseUserAccount>> updateUserAccount(@RequestBody UserAccount account,
+                                                                 @PathVariable("id") int id){
         try {
             int updateRowEffected = accountService.updateUserAccountById(account, id);
             if (updateRowEffected > 0){
