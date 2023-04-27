@@ -48,7 +48,7 @@ public class UserAccountController {
         }
     }
 
-    @GetMapping("/update-user-account/{id}")
+    @PutMapping("/update-user-account/{id}")
     public Response<List<ResponseUserAccount>> updateUserAccount(@RequestBody UserAccount account,
                                                                  @PathVariable("id") int id){
         try {
